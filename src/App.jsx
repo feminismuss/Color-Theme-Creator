@@ -6,7 +6,13 @@ function App() {
   return (
     <>
       <h1>Theme Creator</h1>
-      // display colors here
+      {initialColors.map((color) => (
+        <Color
+        key={color.id}
+        role={color.role}
+        hex={color.hex}
+        contrastText={color.contrastText} />
+      ))}
     </>
   );
 }
