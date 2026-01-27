@@ -8,7 +8,7 @@ export default function ColorForm({
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const data = formData.fromEntries;
+    const data = Object.fromEntries(formData);
     onSubmitColor(data);
   }
   return (
@@ -27,7 +27,7 @@ export default function ColorForm({
 
       <label>Contrastcolor for Text</label>
       <ColorInput id="contrastText" defaultValue={initialData.contrastText} />
-      <button>Add Theme</button>
+      <button type="submit">Add Theme</button>
     </form>
   );
 }
