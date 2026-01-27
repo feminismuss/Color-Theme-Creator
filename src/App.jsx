@@ -12,7 +12,10 @@ function App() {
     const colorWithId = { id: nanoid(), ...newColor };
     setColors([colorWithId, ...colors]);
   }
-
+  function handleDeleteColor(idToDelete) {
+    const filteredColors = colors.filter((color) => color.id !== idToDelete);
+    setColors(filteredColors);
+  }
   return (
     <>
       <h1>Theme Creator</h1>
@@ -23,6 +26,7 @@ function App() {
           role={color.role}
           hex={color.hex}
           contrastText={color.contrastText}
+          onDeleteColor={() => handleDeleteColor(color.id)}
         />
       ))}
     </>
