@@ -1,3 +1,4 @@
+import ColorInput from "../ColorInput/ColorInput";
 import "./ColorForm.css";
 
 export default function ColorForm({
@@ -14,8 +15,7 @@ export default function ColorForm({
     <form className="color-form" onSubmit={handleSubmit}>
       <h2>Add a new Color</h2>
       <label htmlFor="hex">Hex</label>
-      <input type="text" id="hex" name="hex" defaultValue={initialData.hex} />
-      <input type="color" id="hex" name="hex" />
+      <ColorInput id="hex" defaultValue={initialData.hex} />
 
       <label htmlFor="role">Role</label>
       <input
@@ -26,13 +26,7 @@ export default function ColorForm({
       />
 
       <label>Contrastcolor for Text</label>
-      <input
-        type="text"
-        id="contrastText"
-        name="contrastText"
-        defaultValue={initialData.contrastText}
-      />
-      <input type="color" id="contrastText" name="contrastText" />
+      <ColorInput id="contrastText" defaultValue={initialData.contrastText} />
       <button>Add Theme</button>
     </form>
   );
