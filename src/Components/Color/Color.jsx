@@ -18,7 +18,7 @@ export default function Color({ role, hex, contrastText, onDeleteColor }) {
       <p>contrast: {contrastText}</p>
       {showConfirmationMessage ? (
         <>
-          <p>Really delete?</p>
+          <p className="color-card-highlight">Really delete?</p>
 
           <button onClick={onDeleteColor}>Yes</button>
           <button onClick={() => setShowConfirmationMessage(false)}>
