@@ -1,11 +1,13 @@
 import "./Color.css";
-// import { useState } from "react";
+import { useState } from "react";
 
 export default function Color({ role, hex, contrastText, onDeleteColor }) {
-  // State for message
-// const [confirmationMessage, setConfirmationMessage] = useState("")
+  const [showConfirmationMessage, setShowConfirmationMessage] = useState(false);
 
-  
+  function handleDeleteClick() {
+    setShowConfirmationMessage(true);
+  }
+
   return (
     <div
       className="color-card"
@@ -14,8 +16,18 @@ export default function Color({ role, hex, contrastText, onDeleteColor }) {
       <h2 className="color-card-headline">{hex}</h2>
       <p>{role}</p>
       <p>contrast: {contrastText}</p>
-      {/* button */}
-      <button onClick={onDeleteColor}>Delete</button>
+      {showConfirmationMessage ? (
+        <>
+          <p>Really delete?</p>
+
+          <button onClick={onDeleteColor}>Yes</button>
+          <button onClick={() => setShowConfirmationMessage(false)}>
+            Cancel
+          </button>
+        </>
+      ) : (
+        <button onClick={handleDeleteClick}>Delete</button>
+      )}
     </div>
   );
 }
