@@ -1,7 +1,7 @@
 import "./Color.css";
 import { useState } from "react";
 
-export default function Color({ role, hex, contrastText, onDeleteColor }) {
+export default function Color({ role, hex, contrastText, onDeleteColor, onEditColor }) {
   const [showConfirmationMessage, setShowConfirmationMessage] = useState(false);
 
   function handleDeleteClick() {
